@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StreetLife</string>
+    <string name="email">이메일</string>
+    <string name="password">비밀번호</string>
+    <string name="sign_in">로그인</string>
+    <string name="sign_up">계정이 없으신가요? 가입하기</string>
+    <string name="click_sign_up">가입하기</string>
+    <string name="cancel_sign_up">취소</string>
+</resources>
