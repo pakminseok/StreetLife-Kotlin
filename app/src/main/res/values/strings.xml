@@ -6,4 +6,13 @@
     <string name="sign_up">계정이 없으신가요? 가입하기</string>
     <string name="click_sign_up">가입하기</string>
     <string name="cancel_sign_up">취소</string>
+
+    <string name="home">홈</string>
+    <string name="search">검색</string>
+    <string name="add_photo">사진 추가</string>
+    <string name="favorite_alarm">좋아요</string>
+    <string name="action_account">내 계정</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
