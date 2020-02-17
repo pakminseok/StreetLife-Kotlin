@@ -18,6 +18,10 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         auth = FirebaseAuth.getInstance()
+
+        if(auth.currentUser != null)
+            moveMainPage(auth.currentUser)
+
         btn_login.setOnClickListener {
             var email = login_email.text.toString().trim()
             var password = login_password.text.toString().trim()

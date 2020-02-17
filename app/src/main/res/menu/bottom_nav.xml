@@ -11,10 +11,10 @@
         android:enabled="true"
         android:title="@string/search"/>
     <item
-        android:id="@+id/action_add_photo"
-        android:icon="@drawable/ic_photo"
+        android:id="@+id/action_add_spot"
+        android:icon="@drawable/ic_spot_create"
         android:enabled="true"
-        android:title="@string/add_photo"/>
+        android:title="@string/add_spot"/>
     <item
         android:id="@+id/action_favorite_alarm"
         android:icon="@drawable/ic_favorite"
