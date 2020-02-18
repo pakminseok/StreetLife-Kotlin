@@ -21,5 +21,6 @@
     <string name="write_review">숏 리뷰</string>
     <string name="spot_upload_success">스팟이 추가되었습니다.</string>
 
+    <string name="map">지도</string>
 
 </resources>

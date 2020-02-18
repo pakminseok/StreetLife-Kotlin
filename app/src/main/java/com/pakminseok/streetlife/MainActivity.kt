@@ -10,13 +10,12 @@ import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pakminseok.streetlife.navigation.*
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_home ->{
-                var detailViewFragment = DetailViewFragment()
+                var detailViewFragment = SpotListFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.main_content, detailViewFragment).commit()
                 return true
             }
@@ -50,5 +49,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         setContentView(R.layout.activity_main)
         btm_nav.setOnNavigationItemSelectedListener(this)
         ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+        btm_nav.selectedItemId = R.id.action_home
     }
 }
