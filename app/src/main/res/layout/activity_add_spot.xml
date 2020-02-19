@@ -27,6 +27,14 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/ic_image_upload" />
+    <ImageButton
+        android:id="@+id/btn_add_geo_point"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/btn_add_photo"
+        android:background="@drawable/ic_map" />
 
     <Button
         android:id="@+id/btn_upload"

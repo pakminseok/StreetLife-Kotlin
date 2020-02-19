@@ -1,5 +1,7 @@
 package com.pakminseok.streetlife.model
 
+import com.google.firebase.firestore.GeoPoint
+
 data class SpotDTO(
     var title : String? = null,
     var shortReview : String? = null,
@@ -7,6 +9,7 @@ data class SpotDTO(
     var uid : String? = null,
     var userId : String?= null,
     var timestamp :Long?=null,
+    var geoPoint: GeoPoint? =null,
     var favoriteCount : Int = 0,
     var favorites : Map<String, Boolean> = HashMap()
 )

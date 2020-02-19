@@ -1,6 +1,7 @@
 package com.pakminseok.streetlife.navigation
 
 import android.content.Intent
+import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,9 +19,13 @@ import com.pakminseok.streetlife.SpotDetailActivity
 import com.pakminseok.streetlife.model.SpotDTO
 import kotlinx.android.synthetic.main.fragment_detail_view.view.*
 import kotlinx.android.synthetic.main.spot_thumbnail.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class SpotListFragment : Fragment() {
     var firestore : FirebaseFirestore? = null
+    private  var latitude : Double = 0.0
+    private  var longitude : Double = 0.0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,7 +71,12 @@ class SpotListFragment : Fragment() {
 
             Glide.with(holder.itemView.context).load(spotDTOs!![position].imageUrl).into(viewholder.spot_thumbnail_photo)
             viewholder.spot_thumbnail_title.text = spotDTOs!![position].title
+            val latitude = spotDTOs!![position].geoPoint!!.latitude
+            val longitude = spotDTOs!![position].geoPoint!!.longitude
 
+
+            val geocoder = Geocoder(context, Locale.getDefault())
+            viewholder.spot_thumbnail_address.text = geocoder.getFromLocation(latitude, longitude, 1).get(0).getAddressLine(0).toString()
             viewholder.setOnClickListener {
                 val intent = Intent(context, SpotDetailActivity::class.java)
                 intent.putExtra("spotImgID",spotDTOs!![position].imageUrl)

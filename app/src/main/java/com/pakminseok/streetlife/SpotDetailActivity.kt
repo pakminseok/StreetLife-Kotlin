@@ -19,10 +19,14 @@ import com.google.android.gms.maps.model.LatLngBounds
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import android.location.Geocoder
+import java.util.*
 
 
 class SpotDetailActivity : AppCompatActivity() {
+
+    private  var latitude : Double = 0.0
+    private  var longitude : Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +41,15 @@ class SpotDetailActivity : AppCompatActivity() {
                 Glide.with(this).load(curr_spot!!.imageUrl).into(spot_detail_photo)
                 spot_detail_title.text = curr_spot.title
                 spot_detail_short_review.text = curr_spot.shortReview
+
+                latitude = curr_spot.geoPoint!!.latitude
+                longitude = curr_spot.geoPoint!!.longitude
+
+                val geocoder = Geocoder(this, Locale.getDefault())
+                spot_detail_address.text = geocoder.getFromLocation(latitude, longitude, 1)[0].getAddressLine(0).toString()
             }
         }
+
 
         var mapFragment = supportFragmentManager.findFragmentById(R.id.spot_detail_map) as SupportMapFragment
         btn_spot_detail_map.setOnCheckedChangeListener { _, isChecked ->
@@ -48,9 +59,9 @@ class SpotDetailActivity : AppCompatActivity() {
                 mapFragment.getMapAsync {
                     var googleMap : GoogleMap = it
 
-                    val location = LatLng(13.03, 77.60)
+                    val location = LatLng(latitude, longitude)
                     googleMap.addMarker(MarkerOptions().position(location))
-                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 10f))
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15f))
                 }
             } else {
                 map_layout.visibility = View.GONE
