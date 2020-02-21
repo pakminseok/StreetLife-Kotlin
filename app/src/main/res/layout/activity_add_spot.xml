@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".navigation.AddSpotActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/logo_toolbar"
         android:layout_width="match_parent"
@@ -19,68 +20,28 @@
             android:src="@drawable/logo_toolbar" />
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageButton
-        android:id="@+id/btn_add_photo"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:background="@drawable/ic_image_upload" />
-    <ImageButton
-        android:id="@+id/btn_add_geo_point"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@id/btn_add_photo"
-        android:background="@drawable/ic_map" />
 
     <Button
         android:id="@+id/btn_upload"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
         android:background="@color/colorTransparent"
         android:text="@string/upload"
         android:textColor="@color/colorBlack"
         android:textSize="10pt"
         android:textStyle="bold" />
 
+
     <RelativeLayout
-        android:id="@+id/photo_division"
+        android:id="@+id/edit_division"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/edit_text_division"
-        android:layout_below="@id/btn_upload"
+        android:layout_height="match_parent"
+        android:layout_below="@id/logo_toolbar"
         android:layout_margin="5dp"
-        android:background="@drawable/photo_style">
-
-        <TextView
-            android:id="@+id/tv_photo_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/image_upload" />
-
-        <ImageView
-            android:id="@+id/iv_spot_photo"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/edit_text_division"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="50sp"
-        android:orientation="vertical">
+        android:background="#F2F3F4">
 
         <TextView
             android:id="@+id/tv_title"
@@ -93,30 +54,95 @@
             android:id="@+id/ev_spot_title"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="5dp"
-            android:maxLength="30"
-            android:maxLines="2"
+            android:layout_below="@id/tv_title"
+            android:layout_margin="5dp"
             android:background="@drawable/edit_text_style"
-            android:hint="@string/spot_title" />
+            android:hint="@string/spot_title"
+            android:maxLength="30"
+            android:maxLines="2" />
+
+        <ImageButton
+            android:id="@+id/btn_add_photo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/ev_spot_title"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+
+            android:background="@drawable/ic_image_upload" />
+
+        <TextView
+            android:id="@+id/tv_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ev_spot_title"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/btn_add_photo"
+            android:text="사진 변경" />
+
+
+        <RelativeLayout
+            android:id="@+id/photo_division"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/tv_photo"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/photo_style">
+
+            <TextView
+                android:id="@+id/tv_photo_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/image_upload" />
+
+            <ImageView
+                android:id="@+id/iv_spot_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_below="@id/ev_spot_title"
+            android:layout_toRightOf="@id/photo_division"
+            android:layout_margin="5dp"
             android:text="@string/write_review" />
 
         <EditText
             android:id="@+id/ev_spot_review"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/tv_review"
+            android:layout_toRightOf="@id/photo_division"
             android:layout_margin="5dp"
-            android:maxLines="3"
-            android:maxLength="150"
             android:background="@drawable/edit_text_style"
-            android:hint="@string/short_review" />
-    </LinearLayout>
+            android:hint="@string/short_review"
+            android:maxLength="150"
+            android:maxLines="6" />
+        <SearchView
+            android:id="@+id/sv_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ev_spot_review"
+            android:layout_marginBottom="5dp"
+            android:iconifiedByDefault="false"
+            android:background="@drawable/edit_text_style"
+            android:queryHint="@string/search_location" />
+
+        <fragment
+            android:id="@+id/spot_add_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/sv_location" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
