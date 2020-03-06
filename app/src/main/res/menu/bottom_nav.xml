@@ -16,10 +16,10 @@
         android:enabled="true"
         android:title="@string/add_spot"/>
     <item
-        android:id="@+id/action_favorite_alarm"
-        android:icon="@drawable/ic_favorite"
+        android:id="@+id/action_add_street"
+        android:icon="@drawable/ic_map"
         android:enabled="true"
-        android:title="@string/favorite_alarm"/>
+        android:title="@string/add_street"/>
     <item
         android:id="@+id/action_account"
         android:icon="@drawable/ic_account"

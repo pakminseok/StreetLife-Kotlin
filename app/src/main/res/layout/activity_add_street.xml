@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".navigation.AddStreetActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/logo_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo_toolbar" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/colorTransparent"
+        android:text="@string/upload_street"
+        android:textColor="@color/colorBlack"
+        android:textSize="10pt"
+        android:textStyle="bold" />
+
+
+    <RelativeLayout
+        android:id="@+id/edit_division"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/logo_toolbar"
+        android:background="#F2F3F4">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/write_street_title" />
+
+        <EditText
+            android:id="@+id/ev_street_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/tv_title"
+            android:layout_margin="5dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/street_title"
+            android:maxLength="30"
+            android:maxLines="2" />
+
+        <ImageButton
+            android:id="@+id/btn_add_photo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/ev_street_title"
+
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+
+            android:background="@drawable/ic_image_upload" />
+
+        <TextView
+            android:id="@+id/tv_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ev_street_title"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/btn_add_photo"
+            android:text="@string/street_image_upload" />
+
+
+        <RelativeLayout
+            android:id="@+id/photo_division"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/tv_photo"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/photo_style">
+
+            <TextView
+                android:id="@+id/tv_photo_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/image_upload" />
+
+            <ImageView
+                android:id="@+id/iv_street_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ev_street_title"
+            android:layout_toRightOf="@id/photo_division"
+            android:layout_margin="5dp"
+            android:text="@string/write_street_review" />
+
+        <EditText
+            android:id="@+id/ev_steet_review"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/tv_review"
+            android:layout_toRightOf="@id/photo_division"
+            android:layout_margin="5dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/street_review"
+            android:maxLength="150"
+            android:maxLines="6" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/ev_steet_review"
+            android:id="@+id/rv_spot_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

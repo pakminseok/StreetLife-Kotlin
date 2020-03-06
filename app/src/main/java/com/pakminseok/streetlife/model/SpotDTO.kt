@@ -10,6 +10,5 @@ data class SpotDTO(
     var userId : String?= null,
     var timestamp :Long?=null,
     var geoPoint: GeoPoint? =null,
-    var favoriteCount : Int = 0,
-    var favorites : Map<String, Boolean> = HashMap()
+    var isSelected : Boolean = false
 )

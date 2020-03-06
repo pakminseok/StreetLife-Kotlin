@@ -15,13 +15,13 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_home ->{
-                var detailViewFragment = SpotListFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, detailViewFragment).commit()
+                var streetListFragment = StreetListFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.main_content, streetListFragment).commit()
                 return true
             }
             R.id.action_search ->{
-                var gridFragment = GridFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, gridFragment).commit()
+                var spotListFragment = SpotListFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.main_content, spotListFragment).commit()
                 return true
             }
             R.id.action_add_spot ->{
@@ -30,9 +30,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 }
                 return true
             }
-            R.id.action_favorite_alarm ->{
-                var favoriteFragment = AlarmFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, favoriteFragment).commit()
+            R.id.action_add_street ->{
+                if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivity(Intent(this, AddStreetActivity::class.java))
+                }
                 return true
             }
             R.id.action_account -> {
