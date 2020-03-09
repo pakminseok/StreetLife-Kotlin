@@ -15,10 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".StreetView"></activity>
+        <activity android:name=".SlideAdapter" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_api_key" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,9 +33,9 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SpotDetailActivity" />
-        <activity android:name=".StreetDetailActivity"/>
+        <activity android:name=".StreetDetailActivity" />
         <activity android:name=".navigation.AddSpotActivity" />
-        <activity android:name=".navigation.AddStreetActivity"/>
+        <activity android:name=".navigation.AddStreetActivity" />
     </application>
 
 </manifest>
